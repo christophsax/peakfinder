@@ -44,7 +44,8 @@ peakfinder <- function(x){
       req(wd)
       df %>%
         filter(x >= wd[1], x <= wd[2]) %>%
-        slice(which.max(y))
+        slice(which.max(y)) %>% 
+        mutate(x.start = wd[1], x.end = wd[2])
     })
 
     # show peak df
